@@ -142,8 +142,10 @@ sudo yum clean all
 sudo yum install -y zabbix-agent vim
 
 sudo sed -i 's/127.0.0.1/192.168.56.141/g' /etc/zabbix/zabbix_agentd.conf
+sudo sed -i 's/Hostname=Zabbix\ server/Hostname=zagent/g' /etc/zabbix/zabbix_agentd.conf
+#Hostname=Zabbix server
 #127.0.0.1
-
+sudo systemctl enable zabbix-agent
 sudo systemctl enable zabbix-agent
 
 
