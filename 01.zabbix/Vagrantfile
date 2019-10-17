@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
       zagent.vm.box = "sbeliakou/centos"
       zagent.vm.hostname = 'zagent'
       zagent.vm.box_url = "https://app.vagrantup.com/sbeliakou/boxes/centos/versions/7.6.20190810"
-#      zagent.vm.provision "shell", path: "monZSA.sh"
+      zagent.vm.provision "shell", path: "monZSA.sh"
       zagent.vm.network :private_network, ip: "192.168.56.142"
       zagent.vm.provider :virtualbox do |v|
         v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
