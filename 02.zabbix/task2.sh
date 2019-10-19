@@ -4,7 +4,6 @@
 #Beginning of custom variables
 #Set these to appropriate values before executing script...
 
-baseDir=$(pwd)
 
 zabbixServer='192.168.56.141'
 
@@ -13,8 +12,7 @@ zabbixServer='192.168.56.141'
 zabbixUsername='Admin'
 zabbixPassword='zabbix'
 ###########################
-#zabbixHostGroup='Linux servers'
-#maintenanceWindowName="Maintenance Window for $zabbixHostGroup"
+
 
 hgroup="CloudHosts"
 
@@ -139,19 +137,10 @@ sudo sed -i 's/Hostname=Zabbix\ server/Hostname=zagent/g' /etc/zabbix/zabbix_age
 sudo systemctl enable zabbix-agent
 sudo systemctl start zabbix-agent
 
-#cho 'install epel'
-#sudo yum install -y epel-release vim> /dev/null
-#echo 'install JDK'
-
-#sudo yum localinstall -y /vagrant/jdk-8u221-linux-x64.rpm
-
 echo 'create user'
 sudo mkdir /opt/tomcat
 sudo groupadd tomcat
 sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
-
-#sudo echo 'export JAVA_HOME=/usr/java/jdk1.8.0_221-amd64/jre' >> ~/.bash_profile
-#sudo echo 'export PATH=$JAVA_HOME/bin:$PATH' >> ~/.bash_profile
 
 cd /opt/
 sudo curl http://ftp.byfly.by/pub/apache.org/tomcat/tomcat-8/v8.5.47/bin/apache-tomcat-8.5.47.tar.gz --output ./apache-tomcat-8.5.47.tar.gz
