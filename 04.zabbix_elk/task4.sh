@@ -84,9 +84,6 @@ EOF
 
 sudo yum install -y vim epel-release java java-devel logstash
 
-curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-x86_64.rpm
-sudo rpm -vi filebeat-7.4.0-x86_64.rpm
-
 cat <<EOF > /etc/logstash/conf.d/logagent.conf
 input {
   file {
